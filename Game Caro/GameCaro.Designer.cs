@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameCaro));
             this.pn_GameBoard = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Grb_About = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -71,8 +72,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutThisGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txt_Chat = new System.Windows.Forms.TextBox();
-            this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
             this.panel2.SuspendLayout();
             this.Grb_About.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -80,7 +81,6 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_GameBoard
@@ -104,6 +104,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(400, 126);
             this.panel1.TabIndex = 1;
+            // 
+            // pb_Logo
+            // 
+            this.pb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Logo.BackColor = System.Drawing.Color.White;
+            this.pb_Logo.BackgroundImage = global::Game_Caro.Properties.Resources.logo_kmin;
+            this.pb_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_Logo.InitialImage = null;
+            this.pb_Logo.Location = new System.Drawing.Point(0, 0);
+            this.pb_Logo.Name = "pb_Logo";
+            this.pb_Logo.Size = new System.Drawing.Size(400, 126);
+            this.pb_Logo.TabIndex = 0;
+            this.pb_Logo.TabStop = false;
             // 
             // panel2
             // 
@@ -479,26 +492,26 @@
             // 
             this.howToPlayToolStripMenuItem.Name = "howToPlayToolStripMenuItem";
             this.howToPlayToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.howToPlayToolStripMenuItem.Text = "How to play";
             this.howToPlayToolStripMenuItem.Click += new System.EventHandler(this.HowToPlayToolStripMenuItem_Click);
             // 
             // contactMeToolStripMenuItem
             // 
             this.contactMeToolStripMenuItem.Name = "contactMeToolStripMenuItem";
-            this.contactMeToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.contactMeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.contactMeToolStripMenuItem.Text = "Contact me";
             this.contactMeToolStripMenuItem.Click += new System.EventHandler(this.ContactMeToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(221, 6);
             // 
             // aboutThisGameToolStripMenuItem
             // 
             this.aboutThisGameToolStripMenuItem.Name = "aboutThisGameToolStripMenuItem";
-            this.aboutThisGameToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.aboutThisGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.aboutThisGameToolStripMenuItem.Text = "About this game";
             this.aboutThisGameToolStripMenuItem.Click += new System.EventHandler(this.AboutThisGameToolStripMenuItem_Click);
             // 
@@ -517,19 +530,6 @@
             this.txt_Chat.Size = new System.Drawing.Size(400, 235);
             this.txt_Chat.TabIndex = 4;
             this.txt_Chat.Text = "- Player 1: E dạo này ổn ko còn đi làm ở công ty cũ";
-            // 
-            // pb_Logo
-            // 
-            this.pb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Logo.BackColor = System.Drawing.Color.White;
-            this.pb_Logo.BackgroundImage = global::Game_Caro.Properties.Resources.logo_kmin;
-            this.pb_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_Logo.InitialImage = null;
-            this.pb_Logo.Location = new System.Drawing.Point(0, 0);
-            this.pb_Logo.Name = "pb_Logo";
-            this.pb_Logo.Size = new System.Drawing.Size(400, 126);
-            this.pb_Logo.TabIndex = 0;
-            this.pb_Logo.TabStop = false;
             // 
             // GameCaro
             // 
@@ -555,6 +555,7 @@
             this.Load += new System.EventHandler(this.GameCaro_Load);
             this.Shown += new System.EventHandler(this.GameCaro_Shown);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.Grb_About.ResumeLayout(false);
@@ -565,7 +566,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -70,7 +70,7 @@ namespace Game_Caro
 
         private void GameCaro_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn thoát không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you wanna quit!", "Oh..!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != System.Windows.Forms.DialogResult.Yes)
                 e.Cancel = true;
             else
             {
@@ -256,7 +256,7 @@ namespace Game_Caro
 
         private void AboutThisGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Tic-tac-toe game made with C#");
         }
         #endregion     
 
@@ -331,7 +331,7 @@ namespace Game_Caro
             switch (data.Command)
             {
                 case (int)SocketCommand.SEND_POINT:
-                    // Có thay đổi giao diện muốn chạy ngọt phải để trong đây
+                    // UI changing
                     this.Invoke((MethodInvoker)(() =>
                     {
                         board.OtherPlayerClicked(data.Point);
@@ -380,7 +380,7 @@ namespace Game_Caro
                     this.Invoke((MethodInvoker)(() =>
                     {
                         EndGame();
-                        MessageBox.Show(PlayerName + " đã chiến thắng ♥ !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(PlayerName + " is the winner ♥ !!!", "Congratulation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }));
                     break;
 
@@ -401,7 +401,7 @@ namespace Game_Caro
                         board.PlayMode = 2;
                         socket.CloseConnect();
 
-                        MessageBox.Show("Đối thủ đã chạy mất dép", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Opponent has left the game", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }));
                     break;
 
