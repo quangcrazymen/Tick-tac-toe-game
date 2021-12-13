@@ -171,7 +171,7 @@ namespace Game_Caro
                         Height = Constance.CellHeight,
 
                         Location = new Point(LocX, LocY),
-                        Tag = i.ToString(), // Để xác định button đang ở hàng nào
+                        Tag = i.ToString(),
 
                         BackColor = Color.Lavender,
                         BackgroundImageLayout = ImageLayout.Stretch                        
@@ -544,7 +544,7 @@ namespace Game_Caro
             Button btn = sender as Button;
 
             if (btn.BackgroundImage != null)
-                return; // Nếu ô đã được đánh thì ko cho đánh lại
+                return; 
 
             btn.BackgroundImage = ListPlayers[CurrentPlayer].Symbol;
            
@@ -571,7 +571,7 @@ namespace Game_Caro
             Button btn = MatrixPositions[point.Y][point.X];
 
             if (btn.BackgroundImage != null)
-                return; // Nếu ô đã được đánh thì ko cho đánh lại
+                return;
 
             btn.BackgroundImage = ListPlayers[CurrentPlayer].Symbol;
 
