@@ -3,6 +3,10 @@ using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Threading;
 using System.Windows.Forms;
+using System.Linq;
+using System.IO;
+using System.Media;
+using System.Collections.Generic;
 
 namespace Game_Caro
 {
@@ -12,6 +16,7 @@ namespace Game_Caro
         GameBoard board;
         SocketManager socket;
         string PlayerName;
+        int Time;
 
         public GameCaro()
         {
@@ -40,7 +45,7 @@ namespace Game_Caro
         {
             pgb_CountDown.Value = 0;
             tm_CountDown.Stop();
-
+            gameTime.Start();
             undoToolStripMenuItem.Enabled = true;
             redoToolStripMenuItem.Enabled = true;
 
@@ -60,13 +65,10 @@ namespace Game_Caro
 
             tm_CountDown.Stop();
             pn_GameBoard.Enabled = false;
+            gameTime.Stop();
+            MessageBox.Show("Player 1 is the winner"+"\n"+"Game end in " + Time + "s");
         }
 
-        private void GameCaro_Load(object sender, EventArgs e)
-        {
-            lbl_About.Text = "Tic Tac Toe project in\nC# WinForms\n-- ♦ ♦ ♦ --\nWritten by: Quân Đặng";
-            tm_About.Enabled = true;
-        }
 
         private void GameCaro_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -85,7 +87,8 @@ namespace Game_Caro
         {
             tm_CountDown.Start(); 
             pgb_CountDown.Value = 0;
-
+            soundPlayer1 = new SoundPlayer("Mario Coin Sound - Sound Effect (HD).wav");
+            soundPlayer1.Play();
             if (board.PlayMode == 1)
             {
                 try
@@ -130,13 +133,6 @@ namespace Game_Caro
             }                                    
         }
 
-        private void Tm_About_Tick(object sender, EventArgs e)
-        {
-            lbl_About.Location = new Point(lbl_About.Location.X, lbl_About.Location.Y - 2);
-
-            if (lbl_About.Location.Y + lbl_About.Height < 0)
-                lbl_About.Location = new Point(lbl_About.Location.X, Grb_About.Height - 10);
-        }
 
         #region MenuStrip
         private void NewGameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -190,14 +186,14 @@ namespace Game_Caro
                 socket.IsServer = true;
                 pn_GameBoard.Enabled = true;
                 socket.CreateServer();
-                MessageBox.Show("Bạn đang là Server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("You are the Server", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 socket.IsServer = false;
                 pn_GameBoard.Enabled = false;
                 Listen();
-                MessageBox.Show("Kết nối thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("successfully connected !!!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -211,7 +207,7 @@ namespace Game_Caro
                 } catch { }
 
                 socket.CloseConnect();
-                MessageBox.Show("Đã ngắt kết nối mạng LAN", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("LAN disconnected", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             board.PlayMode = 2;
@@ -414,5 +410,144 @@ namespace Game_Caro
         #endregion
 
         #endregion
+
+        private void historyMatchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            History frm = new History();
+            frm.Show();
+        }
+
+        private void gameTime_Tick(object sender, EventArgs e)
+        {
+            Time += 1;
+        }
+
+        private void btn_saveGame_Click(object sender, EventArgs e)
+        {
+            //txt_IP.Text = Time.ToString();
+            DateTime now = DateTime.Now;
+            WriteFile("History.txt", "Date: " + now + "\n" + "Winner: Player 1"+"\n"+ "Game end in: " + Time + "s" + "\n"+"======================================"+"\n"+"\n");
+            Time = 0;
+        }
+        void WriteFile(string file, string str)
+        {
+            string[] Informations = str.Split('\n');
+            Informations = Informations.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+            try
+            {
+
+                File.AppendAllText(file, str);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+        private SoundPlayer soundPlayer1;
+        private SoundPlayer _soundPlayer;
+        private void music_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Music_CheckedChanged(object sender, EventArgs e)
+        {
+            _soundPlayer = new SoundPlayer("Canon in D.wav");
+            if (Music.Checked)
+            {
+                Music.Text = "Stop";
+                _soundPlayer.Play();
+                Music.BackColor = Color.Tomato;
+            }
+            else
+            {
+                Music.Text = "Play";
+                _soundPlayer.Stop();
+                Music.BackColor = Color.MediumBlue;
+            }
+        }
+
+        private void option1ToolStripMenuItem_Click(object sender, EventArgs e)
+        { 
+            board.ListPlayers = new List<Player>()
+            {
+                new Player("Player one", Image.FromFile(Application.StartupPath + "\\images\\p1.png"),
+                                        Image.FromFile(Application.StartupPath + "\\images\\X.png")),
+
+                new Player("Player two", Image.FromFile(Application.StartupPath + "\\images\\p2.png"),
+                                   Image.FromFile(Application.StartupPath + "\\images\\O.png"))
+
+            };
+
+        }
+
+        private void option2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            board.ListPlayers = new List<Player>()
+            {
+                new Player("Player one", Image.FromFile(Application.StartupPath + "\\images\\p1.png"),
+                                        Image.FromFile(Application.StartupPath + "\\images\\star.png")),
+
+                new Player("Player two", Image.FromFile(Application.StartupPath + "\\images\\p2.png"),
+                                   Image.FromFile(Application.StartupPath + "\\images\\heart.png"))
+
+            };
+        }
+
+        private void option3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            board.ListPlayers = new List<Player>()
+            {
+                new Player("Player one", Image.FromFile(Application.StartupPath + "\\images\\p1.png"),
+                                        Image.FromFile(Application.StartupPath + "\\images\\blackSun.png")),
+
+                new Player("Player two", Image.FromFile(Application.StartupPath + "\\images\\p2.png"),
+                                   Image.FromFile(Application.StartupPath + "\\images\\moon.png"))
+
+            };
+        }
+
+        private void option4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            board.ListPlayers = new List<Player>()
+            {
+                new Player("Player one", Image.FromFile(Application.StartupPath + "\\images\\p1.png"),
+                                        Image.FromFile(Application.StartupPath + "\\images\\apple.png")),
+
+                new Player("Player two", Image.FromFile(Application.StartupPath + "\\images\\p2.png"),
+                                   Image.FromFile(Application.StartupPath + "\\images\\banana.png"))
+
+            };
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cyanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pn_GameBoard.BackColor = Color.Cyan;
+            NewGame();
+        }
+
+        private void mediumTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pn_GameBoard.BackColor = Color.MediumTurquoise;
+            NewGame();
+        }
+
+        private void dodgerBlueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pn_GameBoard.BackColor = Color.DodgerBlue;
+            NewGame();
+        }
+
+        private void pinkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pn_GameBoard.BackColor = Color.Pink;
+            NewGame();
+        }
     }
 }

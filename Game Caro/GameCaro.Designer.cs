@@ -31,22 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameCaro));
             this.pn_GameBoard = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Grb_About = new System.Windows.Forms.GroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbl_About = new System.Windows.Forms.Label();
-            this.txt_PlayerName = new System.Windows.Forms.TextBox();
+            this.Music = new System.Windows.Forms.CheckBox();
             this.pb_Avatar = new System.Windows.Forms.PictureBox();
-            this.tm_About = new System.Windows.Forms.Timer(this.components);
+            this.pgb_CountDown = new System.Windows.Forms.ProgressBar();
+            this.txt_PlayerName = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_saveGame = new System.Windows.Forms.Button();
             this.txt_IP = new System.Windows.Forms.TextBox();
             this.btn_Undo = new System.Windows.Forms.Button();
-            this.pgb_CountDown = new System.Windows.Forms.ProgressBar();
             this.btn_Redo = new System.Windows.Forms.Button();
             this.btn_AI = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_SameCom = new System.Windows.Forms.Button();
             this.btn_LAN = new System.Windows.Forms.Button();
             this.tm_CountDown = new System.Windows.Forms.Timer(this.components);
@@ -57,6 +52,8 @@
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.historyMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,21 +62,25 @@
             this.SameComToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.option1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.option2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.option3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.option4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.howToPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutThisGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cyanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodgerBlueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mediumTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txt_Chat = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
+            this.gameTime = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
-            this.Grb_About.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Avatar)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,79 +89,62 @@
             this.pn_GameBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pn_GameBoard.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.pn_GameBoard.BackColor = System.Drawing.Color.DodgerBlue;
             this.pn_GameBoard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_GameBoard.Location = new System.Drawing.Point(17, 50);
             this.pn_GameBoard.Name = "pn_GameBoard";
-            this.pn_GameBoard.Size = new System.Drawing.Size(840, 770);
+            this.pn_GameBoard.Size = new System.Drawing.Size(912, 770);
             this.pn_GameBoard.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pb_Logo);
-            this.panel1.Location = new System.Drawing.Point(875, 50);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 126);
-            this.panel1.TabIndex = 1;
-            // 
-            // pb_Logo
-            // 
-            this.pb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Logo.BackColor = System.Drawing.Color.White;
-            this.pb_Logo.BackgroundImage = global::Game_Caro.Properties.Resources.logo_kmin;
-            this.pb_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_Logo.InitialImage = null;
-            this.pb_Logo.Location = new System.Drawing.Point(0, 0);
-            this.pb_Logo.Name = "pb_Logo";
-            this.pb_Logo.Size = new System.Drawing.Size(400, 126);
-            this.pb_Logo.TabIndex = 0;
-            this.pb_Logo.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.Grb_About);
-            this.panel2.Controls.Add(this.txt_PlayerName);
+            this.panel2.Controls.Add(this.Music);
             this.panel2.Controls.Add(this.pb_Avatar);
-            this.panel2.Location = new System.Drawing.Point(875, 183);
+            this.panel2.Controls.Add(this.pgb_CountDown);
+            this.panel2.Location = new System.Drawing.Point(946, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 180);
+            this.panel2.Size = new System.Drawing.Size(338, 233);
             this.panel2.TabIndex = 1;
             // 
-            // Grb_About
+            // Music
             // 
-            this.Grb_About.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Grb_About.BackColor = System.Drawing.Color.Transparent;
-            this.Grb_About.Controls.Add(this.panel3);
-            this.Grb_About.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grb_About.ForeColor = System.Drawing.Color.Lime;
-            this.Grb_About.Location = new System.Drawing.Point(207, 0);
-            this.Grb_About.Name = "Grb_About";
-            this.Grb_About.Size = new System.Drawing.Size(193, 144);
-            this.Grb_About.TabIndex = 0;
-            this.Grb_About.TabStop = false;
-            this.Grb_About.Text = "About";
+            this.Music.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Music.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Music.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Music.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Music.Location = new System.Drawing.Point(278, 82);
+            this.Music.Name = "Music";
+            this.Music.Size = new System.Drawing.Size(60, 53);
+            this.Music.TabIndex = 3;
+            this.Music.Text = "Play";
+            this.Music.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Music.UseVisualStyleBackColor = false;
+            this.Music.CheckedChanged += new System.EventHandler(this.Music_CheckedChanged);
             // 
-            // panel3
+            // pb_Avatar
             // 
-            this.panel3.Controls.Add(this.lbl_About);
-            this.panel3.Location = new System.Drawing.Point(0, 21);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(193, 117);
-            this.panel3.TabIndex = 0;
+            this.pb_Avatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Avatar.BackgroundImage = global::Game_Caro.Properties.Resources.Quan;
+            this.pb_Avatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_Avatar.Image = global::Game_Caro.Properties.Resources.p1;
+            this.pb_Avatar.Location = new System.Drawing.Point(73, 0);
+            this.pb_Avatar.Name = "pb_Avatar";
+            this.pb_Avatar.Size = new System.Drawing.Size(199, 180);
+            this.pb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Avatar.TabIndex = 0;
+            this.pb_Avatar.TabStop = false;
             // 
-            // lbl_About
+            // pgb_CountDown
             // 
-            this.lbl_About.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_About.ForeColor = System.Drawing.Color.White;
-            this.lbl_About.Location = new System.Drawing.Point(0, 0);
-            this.lbl_About.Name = "lbl_About";
-            this.lbl_About.Size = new System.Drawing.Size(193, 111);
-            this.lbl_About.TabIndex = 4;
-            this.lbl_About.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pgb_CountDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pgb_CountDown.BackColor = System.Drawing.Color.Lime;
+            this.pgb_CountDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.pgb_CountDown.Location = new System.Drawing.Point(73, 186);
+            this.pgb_CountDown.Name = "pgb_CountDown";
+            this.pgb_CountDown.Size = new System.Drawing.Size(199, 30);
+            this.pgb_CountDown.TabIndex = 2;
             // 
             // txt_PlayerName
             // 
@@ -168,47 +152,46 @@
             this.txt_PlayerName.BackColor = System.Drawing.Color.SpringGreen;
             this.txt_PlayerName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PlayerName.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txt_PlayerName.Location = new System.Drawing.Point(207, 150);
+            this.txt_PlayerName.Location = new System.Drawing.Point(1019, 299);
             this.txt_PlayerName.Name = "txt_PlayerName";
             this.txt_PlayerName.ReadOnly = true;
-            this.txt_PlayerName.Size = new System.Drawing.Size(193, 30);
+            this.txt_PlayerName.Size = new System.Drawing.Size(199, 30);
             this.txt_PlayerName.TabIndex = 1;
-            this.txt_PlayerName.Text = "Quân Đặng";
+            this.txt_PlayerName.Text = "Player 1";
             this.txt_PlayerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pb_Avatar
-            // 
-            this.pb_Avatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Avatar.BackgroundImage = global::Game_Caro.Properties.Resources.Quan;
-            this.pb_Avatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_Avatar.Location = new System.Drawing.Point(0, 0);
-            this.pb_Avatar.Name = "pb_Avatar";
-            this.pb_Avatar.Size = new System.Drawing.Size(199, 180);
-            this.pb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_Avatar.TabIndex = 0;
-            this.pb_Avatar.TabStop = false;
-            // 
-            // tm_About
-            // 
-            this.tm_About.Interval = 70;
-            this.tm_About.Tick += new System.EventHandler(this.Tm_About_Tick);
             // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.btn_saveGame);
             this.panel4.Controls.Add(this.txt_IP);
             this.panel4.Controls.Add(this.btn_Undo);
-            this.panel4.Controls.Add(this.pgb_CountDown);
             this.panel4.Controls.Add(this.btn_Redo);
             this.panel4.Controls.Add(this.btn_AI);
-            this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.btn_SameCom);
             this.panel4.Controls.Add(this.btn_LAN);
-            this.panel4.Location = new System.Drawing.Point(875, 370);
+            this.panel4.Location = new System.Drawing.Point(946, 335);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(400, 170);
+            this.panel4.Size = new System.Drawing.Size(329, 205);
             this.panel4.TabIndex = 1;
+            // 
+            // btn_saveGame
+            // 
+            this.btn_saveGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_saveGame.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_saveGame.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_saveGame.FlatAppearance.BorderSize = 0;
+            this.btn_saveGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_saveGame.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_saveGame.ForeColor = System.Drawing.Color.White;
+            this.btn_saveGame.Location = new System.Drawing.Point(19, 51);
+            this.btn_saveGame.Name = "btn_saveGame";
+            this.btn_saveGame.Size = new System.Drawing.Size(96, 40);
+            this.btn_saveGame.TabIndex = 4;
+            this.btn_saveGame.Text = "Save";
+            this.btn_saveGame.UseVisualStyleBackColor = false;
+            this.btn_saveGame.Click += new System.EventHandler(this.btn_saveGame_Click);
             // 
             // txt_IP
             // 
@@ -217,9 +200,9 @@
             this.txt_IP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_IP.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IP.ForeColor = System.Drawing.Color.Blue;
-            this.txt_IP.Location = new System.Drawing.Point(207, 1);
+            this.txt_IP.Location = new System.Drawing.Point(73, 3);
             this.txt_IP.Name = "txt_IP";
-            this.txt_IP.Size = new System.Drawing.Size(193, 30);
+            this.txt_IP.Size = new System.Drawing.Size(199, 30);
             this.txt_IP.TabIndex = 1;
             this.txt_IP.Text = "127.0.0.1";
             this.txt_IP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -227,13 +210,13 @@
             // btn_Undo
             // 
             this.btn_Undo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Undo.BackColor = System.Drawing.Color.DarkOrchid;
+            this.btn_Undo.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btn_Undo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_Undo.FlatAppearance.BorderSize = 0;
             this.btn_Undo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Undo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Undo.ForeColor = System.Drawing.Color.White;
-            this.btn_Undo.Location = new System.Drawing.Point(0, 130);
+            this.btn_Undo.Location = new System.Drawing.Point(19, 107);
             this.btn_Undo.Name = "btn_Undo";
             this.btn_Undo.Size = new System.Drawing.Size(96, 40);
             this.btn_Undo.TabIndex = 3;
@@ -241,26 +224,16 @@
             this.btn_Undo.UseVisualStyleBackColor = false;
             this.btn_Undo.Click += new System.EventHandler(this.Btn_Undo_Click);
             // 
-            // pgb_CountDown
-            // 
-            this.pgb_CountDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pgb_CountDown.BackColor = System.Drawing.Color.Lime;
-            this.pgb_CountDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pgb_CountDown.Location = new System.Drawing.Point(0, 1);
-            this.pgb_CountDown.Name = "pgb_CountDown";
-            this.pgb_CountDown.Size = new System.Drawing.Size(199, 30);
-            this.pgb_CountDown.TabIndex = 2;
-            // 
             // btn_Redo
             // 
             this.btn_Redo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Redo.BackColor = System.Drawing.Color.DarkOrchid;
+            this.btn_Redo.BackColor = System.Drawing.Color.DarkCyan;
             this.btn_Redo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_Redo.FlatAppearance.BorderSize = 0;
             this.btn_Redo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Redo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Redo.ForeColor = System.Drawing.Color.White;
-            this.btn_Redo.Location = new System.Drawing.Point(103, 130);
+            this.btn_Redo.Location = new System.Drawing.Point(19, 162);
             this.btn_Redo.Name = "btn_Redo";
             this.btn_Redo.Size = new System.Drawing.Size(96, 40);
             this.btn_Redo.TabIndex = 3;
@@ -271,13 +244,13 @@
             // btn_AI
             // 
             this.btn_AI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_AI.BackColor = System.Drawing.Color.DeepPink;
+            this.btn_AI.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btn_AI.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_AI.FlatAppearance.BorderSize = 0;
             this.btn_AI.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_AI.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AI.ForeColor = System.Drawing.Color.White;
-            this.btn_AI.Location = new System.Drawing.Point(207, 130);
+            this.btn_AI.Location = new System.Drawing.Point(133, 162);
             this.btn_AI.Name = "btn_AI";
             this.btn_AI.Size = new System.Drawing.Size(193, 40);
             this.btn_AI.TabIndex = 3;
@@ -285,44 +258,33 @@
             this.btn_AI.UseVisualStyleBackColor = false;
             this.btn_AI.Click += new System.EventHandler(this.Btn_AI_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = global::Game_Caro.Properties.Resources.banner;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 38);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(199, 86);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // btn_SameCom
             // 
             this.btn_SameCom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_SameCom.BackColor = System.Drawing.Color.DeepPink;
+            this.btn_SameCom.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btn_SameCom.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_SameCom.FlatAppearance.BorderSize = 0;
             this.btn_SameCom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_SameCom.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SameCom.ForeColor = System.Drawing.Color.White;
-            this.btn_SameCom.Location = new System.Drawing.Point(207, 84);
+            this.btn_SameCom.Location = new System.Drawing.Point(133, 107);
             this.btn_SameCom.Name = "btn_SameCom";
             this.btn_SameCom.Size = new System.Drawing.Size(193, 40);
             this.btn_SameCom.TabIndex = 3;
-            this.btn_SameCom.Text = "2 Players / Com";
+            this.btn_SameCom.Text = "2 Players";
             this.btn_SameCom.UseVisualStyleBackColor = false;
             this.btn_SameCom.Click += new System.EventHandler(this.Btn_SameCom_Click);
             // 
             // btn_LAN
             // 
             this.btn_LAN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_LAN.BackColor = System.Drawing.Color.DeepPink;
+            this.btn_LAN.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btn_LAN.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_LAN.FlatAppearance.BorderSize = 0;
             this.btn_LAN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_LAN.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_LAN.ForeColor = System.Drawing.Color.White;
-            this.btn_LAN.Location = new System.Drawing.Point(207, 38);
+            this.btn_LAN.Location = new System.Drawing.Point(133, 51);
             this.btn_LAN.Name = "btn_LAN";
             this.btn_LAN.Size = new System.Drawing.Size(193, 40);
             this.btn_LAN.TabIndex = 3;
@@ -338,9 +300,9 @@
             // 
             this.txt_Message.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Message.Font = new System.Drawing.Font("Arial", 12F);
-            this.txt_Message.Location = new System.Drawing.Point(875, 789);
+            this.txt_Message.Location = new System.Drawing.Point(946, 789);
             this.txt_Message.Name = "txt_Message";
-            this.txt_Message.Size = new System.Drawing.Size(323, 30);
+            this.txt_Message.Size = new System.Drawing.Size(252, 30);
             this.txt_Message.TabIndex = 4;
             // 
             // btn_Send
@@ -367,6 +329,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.optionsToolStripMenuItem,
+            this.backgroundSettingToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -380,6 +343,8 @@
             this.newGameToolStripMenuItem,
             this.undoToolStripMenuItem,
             this.redoToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.historyMatchToolStripMenuItem,
             this.toolStripSeparator1,
             this.quitToolStripMenuItem});
             this.menuToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
@@ -391,7 +356,7 @@
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
             this.newGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.newGameToolStripMenuItem.Text = "&New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.NewGameToolStripMenuItem_Click);
             // 
@@ -399,7 +364,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.UndoToolStripMenuItem_Click);
             // 
@@ -407,20 +372,33 @@
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.redoToolStripMenuItem.Text = "&Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.RedoToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(234, 6);
+            // 
+            // historyMatchToolStripMenuItem
+            // 
+            this.historyMatchToolStripMenuItem.Name = "historyMatchToolStripMenuItem";
+            this.historyMatchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.historyMatchToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.historyMatchToolStripMenuItem.Text = "History Match";
+            this.historyMatchToolStripMenuItem.Click += new System.EventHandler(this.historyMatchToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(215, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(234, 6);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.quitToolStripMenuItem.Text = "&Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItem_Click);
             // 
@@ -430,10 +408,14 @@
             this.playerToolStripMenuItem2,
             this.playerToolStripMenuItem1,
             this.toolStripSeparator2,
-            this.settingsToolStripMenuItem});
+            this.option1ToolStripMenuItem,
+            this.option2ToolStripMenuItem,
+            this.option3ToolStripMenuItem,
+            this.option4ToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
-            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
+            this.optionsToolStripMenuItem.Text = "Player Options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // playerToolStripMenuItem2
             // 
@@ -470,12 +452,33 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(147, 6);
             // 
-            // settingsToolStripMenuItem
+            // option1ToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
+            this.option1ToolStripMenuItem.Name = "option1ToolStripMenuItem";
+            this.option1ToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.option1ToolStripMenuItem.Text = "Option 1";
+            this.option1ToolStripMenuItem.Click += new System.EventHandler(this.option1ToolStripMenuItem_Click);
+            // 
+            // option2ToolStripMenuItem
+            // 
+            this.option2ToolStripMenuItem.Name = "option2ToolStripMenuItem";
+            this.option2ToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.option2ToolStripMenuItem.Text = "Option 2";
+            this.option2ToolStripMenuItem.Click += new System.EventHandler(this.option2ToolStripMenuItem_Click);
+            // 
+            // option3ToolStripMenuItem
+            // 
+            this.option3ToolStripMenuItem.Name = "option3ToolStripMenuItem";
+            this.option3ToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.option3ToolStripMenuItem.Text = "Option 3";
+            this.option3ToolStripMenuItem.Click += new System.EventHandler(this.option3ToolStripMenuItem_Click);
+            // 
+            // option4ToolStripMenuItem
+            // 
+            this.option4ToolStripMenuItem.Name = "option4ToolStripMenuItem";
+            this.option4ToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.option4ToolStripMenuItem.Text = "Option 4";
+            this.option4ToolStripMenuItem.Click += new System.EventHandler(this.option4ToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -492,28 +495,67 @@
             // 
             this.howToPlayToolStripMenuItem.Name = "howToPlayToolStripMenuItem";
             this.howToPlayToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
             this.howToPlayToolStripMenuItem.Text = "How to play";
             this.howToPlayToolStripMenuItem.Click += new System.EventHandler(this.HowToPlayToolStripMenuItem_Click);
             // 
             // contactMeToolStripMenuItem
             // 
             this.contactMeToolStripMenuItem.Name = "contactMeToolStripMenuItem";
-            this.contactMeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.contactMeToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
             this.contactMeToolStripMenuItem.Text = "Contact me";
             this.contactMeToolStripMenuItem.Click += new System.EventHandler(this.ContactMeToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
             // 
             // aboutThisGameToolStripMenuItem
             // 
             this.aboutThisGameToolStripMenuItem.Name = "aboutThisGameToolStripMenuItem";
-            this.aboutThisGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.aboutThisGameToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
             this.aboutThisGameToolStripMenuItem.Text = "About this game";
             this.aboutThisGameToolStripMenuItem.Click += new System.EventHandler(this.AboutThisGameToolStripMenuItem_Click);
+            // 
+            // backgroundSettingToolStripMenuItem
+            // 
+            this.backgroundSettingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cyanToolStripMenuItem,
+            this.dodgerBlueToolStripMenuItem,
+            this.mediumTToolStripMenuItem,
+            this.pinkToolStripMenuItem});
+            this.backgroundSettingToolStripMenuItem.Name = "backgroundSettingToolStripMenuItem";
+            this.backgroundSettingToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.backgroundSettingToolStripMenuItem.Text = "Background Setting";
+            // 
+            // cyanToolStripMenuItem
+            // 
+            this.cyanToolStripMenuItem.Name = "cyanToolStripMenuItem";
+            this.cyanToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cyanToolStripMenuItem.Text = "Cyan";
+            this.cyanToolStripMenuItem.Click += new System.EventHandler(this.cyanToolStripMenuItem_Click);
+            // 
+            // dodgerBlueToolStripMenuItem
+            // 
+            this.dodgerBlueToolStripMenuItem.Name = "dodgerBlueToolStripMenuItem";
+            this.dodgerBlueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dodgerBlueToolStripMenuItem.Text = "Dodger Blue";
+            this.dodgerBlueToolStripMenuItem.Click += new System.EventHandler(this.dodgerBlueToolStripMenuItem_Click);
+            // 
+            // mediumTToolStripMenuItem
+            // 
+            this.mediumTToolStripMenuItem.Name = "mediumTToolStripMenuItem";
+            this.mediumTToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mediumTToolStripMenuItem.Text = "Medium Turquoise";
+            this.mediumTToolStripMenuItem.Click += new System.EventHandler(this.mediumTToolStripMenuItem_Click);
+            // 
+            // pinkToolStripMenuItem
+            // 
+            this.pinkToolStripMenuItem.Name = "pinkToolStripMenuItem";
+            this.pinkToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pinkToolStripMenuItem.Text = "Pink";
+            this.pinkToolStripMenuItem.Click += new System.EventHandler(this.pinkToolStripMenuItem_Click);
             // 
             // txt_Chat
             // 
@@ -522,29 +564,34 @@
             this.txt_Chat.BackColor = System.Drawing.Color.White;
             this.txt_Chat.Font = new System.Drawing.Font("Arial", 11F);
             this.txt_Chat.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txt_Chat.Location = new System.Drawing.Point(875, 547);
+            this.txt_Chat.Location = new System.Drawing.Point(946, 547);
             this.txt_Chat.Multiline = true;
             this.txt_Chat.Name = "txt_Chat";
             this.txt_Chat.ReadOnly = true;
             this.txt_Chat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_Chat.Size = new System.Drawing.Size(400, 235);
+            this.txt_Chat.Size = new System.Drawing.Size(329, 235);
             this.txt_Chat.TabIndex = 4;
-            this.txt_Chat.Text = "- Player 1: E dạo này ổn ko còn đi làm ở công ty cũ";
+            this.txt_Chat.Text = "Player 1: Whats up";
+            // 
+            // gameTime
+            // 
+            this.gameTime.Interval = 1000;
+            this.gameTime.Tick += new System.EventHandler(this.gameTime_Tick);
             // 
             // GameCaro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.BackgroundImage = global::Game_Caro.Properties.Resources.background;
+            this.BackgroundImage = global::Game_Caro.Properties.Resources.background_dark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1294, 853);
+            this.ClientSize = new System.Drawing.Size(1294, 840);
+            this.Controls.Add(this.txt_PlayerName);
             this.Controls.Add(this.txt_Chat);
             this.Controls.Add(this.txt_Message);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.btn_Send);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pn_GameBoard);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -552,18 +599,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Caro ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameCaro_FormClosing);
-            this.Load += new System.EventHandler(this.GameCaro_Load);
             this.Shown += new System.EventHandler(this.GameCaro_Shown);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.Grb_About.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_Avatar)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -590,7 +630,6 @@
         private System.Windows.Forms.ToolStripMenuItem SameComToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playerToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem howToPlayToolStripMenuItem;
@@ -600,16 +639,11 @@
         #endregion
 
         #region Panel 1
-        private System.Windows.Forms.Panel panel1;
         #endregion
 
         #region Panel 2 + 3
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pb_Avatar;
-        private System.Windows.Forms.GroupBox Grb_About;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lbl_About;
-        private System.Windows.Forms.Timer tm_About;
         private System.Windows.Forms.TextBox txt_PlayerName;
         #endregion
 
@@ -617,7 +651,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Timer tm_CountDown;
         private System.Windows.Forms.ProgressBar pgb_CountDown;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txt_IP;
         private System.Windows.Forms.Button btn_LAN;
         private System.Windows.Forms.Button btn_SameCom;
@@ -632,6 +665,19 @@
         private System.Windows.Forms.Button btn_Send;
         #endregion
 
-        private System.Windows.Forms.PictureBox pb_Logo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem historyMatchToolStripMenuItem;
+        private System.Windows.Forms.Button btn_saveGame;
+        private System.Windows.Forms.Timer gameTime;
+        private System.Windows.Forms.CheckBox Music;
+        private System.Windows.Forms.ToolStripMenuItem option1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem option2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem option3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem option4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backgroundSettingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cyanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodgerBlueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mediumTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pinkToolStripMenuItem;
     }
 }

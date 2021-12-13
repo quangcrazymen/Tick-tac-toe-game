@@ -24,6 +24,7 @@ namespace Game_Caro
         private Stack<PlayInfo> stkRedoStep;
 
         private int playMode = 0;
+        private int symbolOfQC;
         private bool IsAI = false;
 
         public Panel Board
@@ -91,6 +92,12 @@ namespace Game_Caro
             get { return playMode; }
             set { playMode = value; }
         }
+
+        public int SymbolOfQC
+        {
+            get { return symbolOfQC; }
+            set { symbolOfQC = value; }
+        }
         #endregion
 
         #region Initialize
@@ -100,14 +107,29 @@ namespace Game_Caro
             this.PlayerName = PlayerName;
             this.Avatar = Avatar;
 
+            string player1 = "\\images\\X.png";
+            string player2 = "\\images\\O.png";
+            if (symbolOfQC == 1)
+            {
+                player1 = "\\images\\X.png";
+                player2 = "\\images\\X.png";
+            }
+            if (symbolOfQC == 2)
+            {
+                player1 = "\\images\\star.png";
+                player2 = "\\images\\heart.png";
+            }
+            
+            
             this.CurrentPlayer = 0;
             this.ListPlayers = new List<Player>()
             {
-                new Player("Quân Đặng", Image.FromFile(Application.StartupPath + "\\images\\Quan.jpg"),
-                                        Image.FromFile(Application.StartupPath + "\\images\\X.png")),
+                new Player("Player one", Image.FromFile(Application.StartupPath + "\\images\\p1.png"),
+                                        Image.FromFile(Application.StartupPath + player1)),
+                
+                new Player("Player two", Image.FromFile(Application.StartupPath + "\\images\\p2.png"),
+                                   Image.FromFile(Application.StartupPath + player2))
 
-                new Player("Bà Xã", Image.FromFile(Application.StartupPath + "\\images\\Lisa.jpg"),
-                                   Image.FromFile(Application.StartupPath + "\\images\\O.png"))
             };       
         }      
         #endregion
